@@ -20,13 +20,25 @@
             <input type="text" id="cityInput" name="city" required>
             <input type="submit" value="Search">
 
-            <div class="result">
-                <% if (locals.temp && locals.country && locals.weather) { %>
-                    <p><%= temp %>°</p>
+            <% if (locals.temp && locals.country && locals.weather) { %>
+                <div class="result">
                     <p><%= city %> - <%= country %></p>
-                    <p><%= weather %></p>
-                    <% } %>
-            </div>
+
+                    <div class="weather">
+                        <p><%= temp %>°</p>
+
+                        <% if (weather == "Clouds") { %>
+                            <img src="img/cloud.png" alt="cloud">
+                        <% } else if (weather == "Clear") { %>
+                            <img src="img/clear.png" alt="clear">
+                        <% } else if (weather == "Rain") { %>
+                            <img src="img/rain.png" alt="rain">
+                        <% } else if (weather == "Snow") { %>
+                            <img src="img/snow.png" alt="snow">
+                        <% } %>
+                    </div>
+                </div>
+            <% } %>
         </form>
     </div>
 </body>

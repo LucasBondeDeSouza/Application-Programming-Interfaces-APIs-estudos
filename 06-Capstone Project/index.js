@@ -23,8 +23,6 @@ app.post("/search", async (req, res) => {
         const country = result.data.sys.country.replace('"', '')
         const weather = result.data.weather[0].main
 
-        console.log(weather)
-
         res.render('index.ejs', { 
             city,
             temp,
